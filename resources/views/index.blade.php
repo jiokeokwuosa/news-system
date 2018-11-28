@@ -44,7 +44,7 @@
             
                 <div id="c">NEWS UPDATES</div> 
                 <!--Politics-->   
-                <div class="row none">
+                    <div class="row none">
                         <div class="col-md-6" style="margin-bottom: 20px;">
                             
                                 <a href="/articles/{{$politics[0]->id}}">

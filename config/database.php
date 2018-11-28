@@ -1,9 +1,5 @@
 <?php
-$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
-$host=$url['host'];
-$username=$url['user'];
-$password=$url['pass'];
-$database=substr($url['path'],1);
+
 return [
 
     /*
@@ -45,16 +41,16 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => $host,
+            'host' => env('DB_HOST', 'db4free.net'),
             'port' => env('DB_PORT', '3306'),
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
-            'charset' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
+            'database' => env('DB_DATABASE', 'blessing2000'),
+            'username' => env('DB_USERNAME', 'christ4life'),
+            'password' => env('DB_PASSWORD', 'christ4life'),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
-            'prefix_indexes' => true,
-            'strict' => false,
+            'strict' => true,
             'engine' => null,
         ],
 
@@ -67,7 +63,6 @@ return [
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
-            'prefix_indexes' => true,
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
@@ -81,7 +76,6 @@ return [
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
-            'prefix_indexes' => true,
         ],
 
     ],
@@ -118,14 +112,7 @@ return [
             'host' => env('REDIS_HOST', '127.0.0.1'),
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', 6379),
-            'database' => env('REDIS_DB', 0),
-        ],
-
-        'cache' => [
-            'host' => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD', null),
-            'port' => env('REDIS_PORT', 6379),
-            'database' => env('REDIS_CACHE_DB', 1),
+            'database' => 0,
         ],
 
     ],
